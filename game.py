@@ -47,9 +47,7 @@ class Game:
             self.battle.update()
             self.battle.render()
 
-            print(self.battle.monster.health)
             if self.battle.monster.health <= 0:
-                print("me da cuzcuz")
                 self.current_game_state = CurrentGameState.MAP
 
     def determine_game_events(self):
@@ -65,7 +63,7 @@ class Game:
         random_number = utilities.generate_random_number(1, 10)
 
         # 20% de chance de encontrar um regexmon
-        if random_number <= 2:
+        if random_number <= 0:
             found_monster = self.monster_factory.create_monster(map_tile)
             print("Você encontrou um Regexmon!")
             print("Regexmon type: " + found_monster.type)

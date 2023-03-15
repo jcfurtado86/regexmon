@@ -1,13 +1,15 @@
 import pygame
 import config
 import math
-import utilities
+from imgs.spritesheet import SpriteSheet
+
 
 class Map:
+    
     def __init__(self, screen):
         self.screen = screen
         self.map_array = []
-        self.camera = [0,0]
+        self.camera = [0, 0]
 
     def load(self, file_name):
         with open('maps/' + file_name + ".txt") as map_file:
@@ -20,6 +22,16 @@ class Map:
             print(self.map_array)
 
     def render(self, screen, player, objects):
+        # dicionario dos 'tiles'
+        map_sprites = SpriteSheet("imgs/tileset.png")
+        map_tile_image = {
+            config.MAP_TILE_GRASS: map_sprites.parse_sprite('grass1.png'),
+            config.MAP_TILE_WATER: pygame.transform.scale(pygame.image.load("imgs/water.png"), (config.SCALE, config.SCALE)),
+            config.MAP_TILE_ROAD: pygame.transform.scale(
+                pygame.image.load("imgs/road.png"), (config.SCALE, config.SCALE))
+
+        }
+
         self.determine_camera(player)
 
         y_pos = 0
@@ -27,7 +39,8 @@ class Map:
             x_pos = 0
             for tile in line:
                 image = map_tile_image[tile]
-                rect = pygame.Rect(x_pos * config.SCALE, y_pos * config.SCALE - (self.camera[1] * config.SCALE), config.SCALE, config.SCALE)
+                rect = pygame.Rect(x_pos * config.SCALE, y_pos * config.SCALE -
+                                   (self.camera[1] * config.SCALE), config.SCALE, config.SCALE)
                 screen.blit(image, rect)
                 x_pos = x_pos + 1
 
@@ -38,8 +51,10 @@ class Map:
             object.render(self.screen, self.camera)
 
     def determine_camera(self, player):
-        max_y_position = len(self.map_array) - config.SCREEN_HEIGHT / config.SCALE
-        y_position = player.position[1] - math.ceil(round(config.SCREEN_HEIGHT/ config.SCALE / 2))
+        max_y_position = len(self.map_array) - \
+            config.SCREEN_HEIGHT / config.SCALE
+        y_position = player.position[1] - \
+            math.ceil(round(config.SCREEN_HEIGHT / config.SCALE / 2))
 
         if y_position <= max_y_position and y_position >= 0:
             self.camera[1] = y_position
@@ -48,10 +63,4 @@ class Map:
         else:
             self.camera[1] = max_y_position
 
-#dicionario dos 'tiles'
-map_tile_image = {
-    config.MAP_TILE_GRASS: pygame.transform.scale(pygame.image.load("imgs/grass1.png"), (config.SCALE, config.SCALE)),
-    config.MAP_TILE_WATER: pygame.transform.scale(pygame.image.load("imgs/water.png"), (config.SCALE, config.SCALE)),
-    config.MAP_TILE_ROAD: pygame.transform.scale(pygame.image.load("imgs/road.png"), (config.SCALE, config.SCALE))
 
-}
