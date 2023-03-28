@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfmus8v24outn"]
+
+[ext_resource type="Texture2D" uid="uid://dk2hl8bwsyskf" path="res://Assets/Grass/grass_step_animation.png" id="1_hh3wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48v3l"]
+atlas = ExtResource("1_hh3wf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxgt4"]
+atlas = ExtResource("1_hh3wf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl3bk"]
+atlas = ExtResource("1_hh3wf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv47f"]
+atlas = ExtResource("1_hh3wf")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yye7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48v3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxgt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl3bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv47f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_cve0s"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	frame = 0
+	play()
+	
+func _on_animation_finished():
+	queue_free()
+	
+"
+
+[node name="GrassStepEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yye7k")
+autoplay = "default"
+centered = false
+script = SubResource("GDScript_cve0s")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
