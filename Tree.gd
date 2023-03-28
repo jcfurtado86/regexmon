@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-var trees = preload("res://Assets/SERENE_VILLAGE_REVAMPED/trees.png")
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
