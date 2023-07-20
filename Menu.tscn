@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck5agv4jpf8tb"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_gcoo1"]
+[ext_resource type="Texture2D" uid="uid://bmbyx1hj27rjo" path="res://Assets/UI/menu_box_1.png" id="1_rcq6t"]
+[ext_resource type="FontFile" uid="uid://bi4pfinmax1fa" path="res://Assets/UI/pkmnfl.ttf" id="2_kc8uq"]
+[ext_resource type="Texture2D" uid="uid://bf100vnw60uqp" path="res://Assets/UI/ui_arrow_left_right.png" id="3_3p1r5"]
+
+[sub_resource type="FontVariation" id="FontVariation_mtrfq"]
+base_font = ExtResource("2_kc8uq")
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_gcoo1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_right = 240.0
+offset_bottom = 97.0
+texture = ExtResource("1_rcq6t")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 62.0
+offset_bottom = 92.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "REGEXMON"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "BAG"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "Arkeve"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "SAVE"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "OPTION"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Control/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 11)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.435294, 0.435294, 0.533333, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mtrfq")
+theme_override_font_sizes/normal_font_size = 12
+text = "EXIT"
+
+[node name="TextureRect" type="TextureRect" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 12.0
+offset_bottom = 16.0
+texture = ExtResource("3_3p1r5")
