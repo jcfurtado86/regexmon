@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dw0qgispt8gdu"]
+[gd_scene load_steps=12 format=3 uid="uid://dw0qgispt8gdu"]
 
 [ext_resource type="PackedScene" uid="uid://hd7dopabpfq0" path="res://OverworldTileMap.tscn" id="1_1ysbd"]
 [ext_resource type="PackedScene" uid="uid://bitpaxkktvxmb" path="res://LedgeTileMap.tscn" id="2_osxi0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bibor5ub5v1yy" path="res://Tree.tscn" id="7_iua2n"]
 [ext_resource type="PackedScene" uid="uid://damqjvt8j4h7g" path="res://Door.tscn" id="8_hmsou"]
 [ext_resource type="Texture2D" uid="uid://bm1vxcy72kw4t" path="res://Assets/Buildings/oaks_lab.png" id="9_oancx"]
+[ext_resource type="Texture2D" uid="uid://ck2ts2g1fa37" path="res://Assets/Buildings/Door Animations/oaks_lab.png" id="10_8meki"]
 [ext_resource type="PackedScene" uid="uid://bla7arycmf0j2" path="res://house.tscn" id="10_alk2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m2ov"]
@@ -688,4 +689,8 @@ next_scene_path = "res://OaksLabFloor.tscn"
 spawn_location = Vector2(80, 192)
 spawn_direction = Vector2(0, -1)
 
+[node name="Sprite" parent="Node2D/Lab/Door" index="0"]
+texture = ExtResource("10_8meki")
+
 [editable path="Node2D/Lab"]
+[editable path="Node2D/Lab/Door"]
