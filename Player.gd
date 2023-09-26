@@ -79,7 +79,7 @@ func process_player_input():
 		anim_tree.set("parameters/Turn/blend_position", input_direction)
 	
 		var teste = need_to_turn()
-		if teste:
+		if teste and player_state != PlayerState.WALKING:
 			player_state = PlayerState.TURNING
 			anim_state.travel("Turn")
 		else:
